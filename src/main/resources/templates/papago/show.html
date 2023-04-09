@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<style>
+  table, th, td {
+    border: 1px solid #bcbcbc;
+  }
+  table {
+    width: 1000px;
+    height: 200px;
+  }
+  td {
+    text-align: center;
+  }
+</style>
+<body>
+<div class="container">
+  <div>
+    <h1>번역 결과</h1>
+    <table>
+      <thead>
+      <tr>
+        <th>원본</th>
+        <th>결과</th>
+        <th>번역된 언어</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="tran : ${trans}">
+        <td th:text="${tran.word}"></td>
+        <td th:text="${tran.result}"></td>
+        <td th:text="${tran.lang}"></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <a href="/papago">돌아가기</a>
+</div> <!-- /container -->
+</body>
+</html>
