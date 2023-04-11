@@ -1,19 +1,17 @@
-package com.study.naverapi.service;
+package com.translation.naverapi.service;
 
-import com.study.naverapi.domain.Tran;
+import com.translation.naverapi.domain.Translate;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 @Service
@@ -25,7 +23,7 @@ public class PapagoServiceImpl implements PapagoService{
     private String clientSecret;
 
     @Override
-    public List<Tran> tran(String word) throws ParseException {
+    public List<Translate> tran(String word) throws ParseException {
 
         String apiURL = "https://openapi.naver.com/v1/papago/n2mt";
         String text;
@@ -40,7 +38,7 @@ public class PapagoServiceImpl implements PapagoService{
         requestHeaders.put("X-Naver-Client-Secret", clientSecret);
 
         List<String> languages = Arrays.asList("en", "ja", "zh-CN", "vi", "id", "de", "fr");
-        List<Tran> trans = new ArrayList<>();
+        List<Translate> trans = new ArrayList<>();
         for (String lang : languages) {
             String responseBody = post(apiURL, requestHeaders, text, lang);
 
@@ -50,7 +48,7 @@ public class PapagoServiceImpl implements PapagoService{
             JSONObject message = (JSONObject) title.get("message");
             JSONObject value = (JSONObject) message.get("result");
 
-            Tran tran = new Tran();
+            Translate tran = new Translate();
             tran.setWord(word);
             tran.setLang((String) value.get("tarLangType"));
             tran.setResult((String) value.get("translatedText"));

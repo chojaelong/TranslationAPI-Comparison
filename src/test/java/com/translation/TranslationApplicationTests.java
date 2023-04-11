@@ -1,10 +1,10 @@
-package com.study.naverapi;
+package com.translation;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class NaverapiApplicationTests {
+class TranslationApplicationTests {
 
     @Test
     void contextLoads() {

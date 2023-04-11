@@ -1,13 +1,13 @@
-package com.study.naverapi;
+package com.translation;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class NaverapiApplication {
+public class TranslationApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(NaverapiApplication.class, args);
+        SpringApplication.run(TranslationApplication.class, args);
     }
 
 }
