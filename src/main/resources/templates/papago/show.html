@@ -25,10 +25,35 @@
       </tr>
       </thead>
       <tbody>
-      <tr th:each="tran : ${trans}">
-        <td th:text="${tran.word}"></td>
-        <td th:text="${tran.result}"></td>
-        <td th:text="${tran.lang}"></td>
+      <tr>
+        <td th:text="${translateInfo.name}"></td>
+        <td th:text="${translateInfo.english}"></td>
+        <td th:text="English"></td>
+      </tr>
+      <tr>
+        <td th:text="${translateInfo.name}"></td>
+        <td th:text="${translateInfo.japanese}"></td>
+        <td th:text="Japanese"></td>
+      </tr>
+      <tr>
+        <td th:text="${translateInfo.name}"></td>
+        <td th:text="${translateInfo.chinese}"></td>
+        <td th:text="Chinese"></td>
+      </tr>
+      <tr>
+        <td th:text="${translateInfo.name}"></td>
+        <td th:text="${translateInfo.vietnamese}"></td>
+        <td th:text="Vietnamese"></td>
+      </tr>
+      <tr>
+        <td th:text="${translateInfo.name}"></td>
+        <td th:text="${translateInfo.german}"></td>
+        <td th:text="German"></td>
+      </tr>
+      <tr>
+        <td th:text="${translateInfo.name}"></td>
+        <td th:text="${translateInfo.french}"></td>
+        <td th:text="French"></td>
       </tr>
       </tbody>
     </table>

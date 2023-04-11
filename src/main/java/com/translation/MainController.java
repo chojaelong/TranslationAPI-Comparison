@@ -1,10 +1,10 @@
-package com.translation.naverapi.controller;
+package com.translation;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class ApiController {
+public class MainController {
 
     @GetMapping("/")
     public String home() {

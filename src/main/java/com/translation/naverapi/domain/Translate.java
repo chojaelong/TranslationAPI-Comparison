@@ -4,9 +4,15 @@ import lombok.Data;
 
 @Data
 public class Translate {
-    private String word;
+    //번역할 언어
+    private String srcLangType;
+    //번역된 언어
+    private String tarLangType;
+    //번역 결과
+    private String translatedText;
 
-    private String result;
-
-    private String lang;
+    private String engineType;
+    private String pivot;
+    private String dict;
+    private String tarDict;
 }

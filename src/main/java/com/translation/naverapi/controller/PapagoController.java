@@ -1,7 +1,9 @@
 package com.translation.naverapi.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.translation.naverapi.domain.Translate;
 import com.translation.naverapi.domain.TranslateForm;
+import com.translation.naverapi.domain.TranslateInfo;
 import com.translation.naverapi.service.PapagoService;
 import lombok.RequiredArgsConstructor;
 import org.json.simple.parser.ParseException;
@@ -26,9 +28,9 @@ public class PapagoController {
     }
 
     @PostMapping("/show")
-    public String tran(TranslateForm tranForm, Model model) throws ParseException {
-        List<Translate> trans = papagoService.tran(tranForm.getWord());
-        model.addAttribute("trans", trans);
+    public String tran(TranslateForm tranForm, Model model) throws ParseException, JsonProcessingException {
+        TranslateInfo translateInfo = papagoService.translate(tranForm.getWord());
+        model.addAttribute("translateInfo", translateInfo);
 
         return "/papago/show";
     }
