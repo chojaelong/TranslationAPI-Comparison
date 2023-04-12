@@ -24,7 +24,7 @@ public class PapagoController {
 
     @GetMapping
     public String papago() {
-        return "/papago/tran";
+        return "papago/tran";
     }
 
     @PostMapping("/show")
@@ -32,6 +32,6 @@ public class PapagoController {
         TranslateInfo translateInfo = papagoService.translate(tranForm.getWord());
         model.addAttribute("translateInfo", translateInfo);
 
-        return "/papago/show";
+        return "papago/show";
     }
 }

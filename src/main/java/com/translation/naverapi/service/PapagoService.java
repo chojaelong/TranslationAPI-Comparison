@@ -16,6 +16,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 @Slf4j
@@ -134,7 +135,7 @@ public class PapagoService {
     }
 
     private static String readBody(InputStream body){
-        InputStreamReader streamReader = new InputStreamReader(body);
+        InputStreamReader streamReader = new InputStreamReader(body, StandardCharsets.UTF_8);
 
         try (BufferedReader lineReader = new BufferedReader(streamReader)) {
             StringBuilder responseBody = new StringBuilder();
