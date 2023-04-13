@@ -59,6 +59,7 @@ public class PapagoService {
         for (String lang : param) {
             String responseBody = post(apiURL, requestHeaders, text, lang);
 
+            //Json 파싱
             JsonNode jsonNode = objectMapper.readTree(responseBody);
             JsonNode result = jsonNode.findValue("result");
 
