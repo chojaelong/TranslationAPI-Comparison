@@ -6,12 +6,16 @@ import com.translation.naverapi.repository.MemoryPapagoRepository;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@SpringBootTest
 class PapagoServiceTest {
 
-    PapagoService papagoService = new PapagoService(new MemoryPapagoRepository());
+    @Autowired
+    PapagoService papagoService;
 
     @AfterEach
     void afterEach() {
@@ -20,7 +24,8 @@ class PapagoServiceTest {
 
     @Test
     void translate() throws JsonProcessingException {
-
+        String word = "자동차";
+        TranslateInfo translateInfo = papagoService.translate(word);
     }
 
 }

@@ -3,11 +3,13 @@ package com.translation.naverapi.service;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.translation.ApiKeyProperties;
 import com.translation.naverapi.domain.Translate;
 import com.translation.naverapi.domain.TranslateInfo;
 import com.translation.naverapi.repository.PapagoRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -21,16 +23,23 @@ import java.util.*;
 
 @Slf4j
 @Service
-@RequiredArgsConstructor
 public class PapagoService {
 
-    @Value("${naver-clientid}")
     private String clientId;
-    @Value("${naver-clientsecret}")
     private String clientSecret;
 
     private final PapagoRepository papagoRepository;
+    private final ApiKeyProperties apiKeyProperties;
     private ObjectMapper objectMapper = new ObjectMapper();
+
+    @Autowired
+    public PapagoService(PapagoRepository papagoRepository, ApiKeyProperties apiKeyProperties) {
+        this.papagoRepository = papagoRepository;
+        this.apiKeyProperties = apiKeyProperties;
+
+        clientId = apiKeyProperties.getNaverClientId();
+        clientSecret = apiKeyProperties.getNaverClientSecret();
+    }
 
     public TranslateInfo translate(String word) throws JsonProcessingException {
 
