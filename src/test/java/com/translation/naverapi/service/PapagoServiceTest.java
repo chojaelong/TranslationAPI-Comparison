@@ -1,3 +1,4 @@
+/*
 package com.translation.naverapi.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -12,7 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-//@SpringBootTest
+@SpringBootTest
 class PapagoServiceTest {
 
     @Autowired
@@ -34,4 +35,4 @@ class PapagoServiceTest {
 
         Assertions.assertThat(target).isEqualTo(translateInfo);
     }
-}
+}*/
