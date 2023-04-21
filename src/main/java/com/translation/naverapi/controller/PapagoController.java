@@ -1,20 +1,16 @@
 package com.translation.naverapi.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.translation.naverapi.domain.Translate;
 import com.translation.naverapi.domain.TranslateForm;
 import com.translation.naverapi.domain.TranslateInfo;
 import com.translation.naverapi.service.PapagoService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.json.simple.parser.ParseException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.util.List;
 
 @Slf4j
 @Controller
